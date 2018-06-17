@@ -44,7 +44,7 @@ avro {
 
 ## Custom LogicalType
 
-:warning: Not working with Avro compiler, since i have no clue how to register custom logicalTypes for compile process
+:warning: Not working with Avro compiler, since i have no clue how to register custom logicalTypes for compile process ([Stackoverflow question](https://stackoverflow.com/questions/50895923/avro-how-to-register-custom-logicaltype-for-specificcompiler)).
 
 ```json
     {
