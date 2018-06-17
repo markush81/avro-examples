@@ -1,0 +1,26 @@
+plugins {
+    id 'idea'
+    id 'java'
+    id 'com.commercehub.gradle.plugin.avro' version '0.14.2'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_9
+targetCompatibility = JavaVersion.VERSION_1_9
+
+dependencies {
+    compile 'org.apache.avro:avro:1.8.2'
+    compile 'joda-time:joda-time:2.10'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+}
+
+avro {
+    enableDecimalLogicalType = true
+}
+
+task wrapper(type: Wrapper) {
+    distributionType = Wrapper.DistributionType.ALL
+}

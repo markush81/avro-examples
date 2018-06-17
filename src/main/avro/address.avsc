@@ -1,0 +1,25 @@
+{
+  "namespace": "de.mh.examples.avro",
+  "type": "record",
+  "name": "Address",
+  "fields": [
+    {
+      "name": "street",
+      "type": {
+        "type": "string",
+        "logicalType": "custom-street"
+      },
+      "doc": "Street format ending with house number"
+    },
+    {
+      "name": "zipcode",
+      "type": "string",
+      "doc": "Zip Code"
+    },
+    {
+      "name": "city",
+      "type": "string",
+      "doc": "City"
+    }
+  ]
+}
