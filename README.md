@@ -105,7 +105,7 @@ Register LogicalType before schema parser is initiated first time
 LogicalTypes.register("custom-street", schema -> new StreetLogicalType());
 ```
 
-Manually adapted objects to get it working can be found in `src/main/manual` `Address` and `User`:
+Manually adapted objects to get it working can be found here [Address](src/main/manual/Address.java) and [User](src/main/manual/User.java):
 - removed `avro.java.string`
 - adapted type `String` to `Street`
 - added conversion array
