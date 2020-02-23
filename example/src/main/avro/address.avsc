@@ -7,7 +7,7 @@
       "name": "street",
       "type": {
         "type": "string",
-        "logicalType": "custom-street"
+        "logicalType": "street"
       },
       "doc": "Street format ending with house number"
     },

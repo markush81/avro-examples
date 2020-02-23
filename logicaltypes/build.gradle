@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+dependencies {
+    implementation 'org.apache.avro:avro:1.9.2'
+}
+
+wrapper {
+    distributionType = Wrapper.DistributionType.ALL
+}

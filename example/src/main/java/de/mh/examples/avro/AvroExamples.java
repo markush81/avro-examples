@@ -19,7 +19,7 @@ public class AvroExamples {
     private static final Logger LOGGER = LoggerFactory.getLogger(AvroExamples.class);
 
     public static void main(String[] args) throws IOException {
-        LogicalTypes.register("custom-street", schema -> new StreetLogicalType());
+        LogicalTypes.register("street", new StreetLogicalTypeFactory());
 
         User user1 = User.newBuilder()
                 .setName("Jane Doe")

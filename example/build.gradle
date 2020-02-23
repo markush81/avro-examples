@@ -1,0 +1,39 @@
+buildscript {
+    dependencies {
+        classpath files('../logicaltypes/build/libs/logicaltypes-1.0.0.jar')
+    }
+}
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'com.commercehub.gradle.plugin.avro' version '0.18.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+dependencies {
+    implementation 'org.apache.avro:avro:1.9.2'
+    implementation files('../logicaltypes/build/libs/logicaltypes-1.0.0.jar')
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+}
+
+avro {
+    enableDecimalLogicalType = true
+    dateTimeLogicalType = "JSR310"
+    stringType = "CharSequence"
+// wait for https://github.com/davidmc24/gradle-avro-plugin/pull/104
+//    stringType = "String"
+    outputCharacterEncoding = "UTF-8"
+    logicalTypeFactory("street", de.mh.examples.avro.StreetLogicalTypeFactory)
+    customConversion(de.mh.examples.avro.StreetConversion)
+}
+
+wrapper {
+    distributionType = Wrapper.DistributionType.ALL
+}
