@@ -7,7 +7,7 @@ buildscript {
 plugins {
     id 'java'
     id 'idea'
-    id 'com.commercehub.gradle.plugin.avro' version '0.18.0'
+    id 'com.commercehub.gradle.plugin.avro' version '0.19.1'
 }
 
 repositories {
@@ -26,9 +26,7 @@ dependencies {
 avro {
     enableDecimalLogicalType = true
     dateTimeLogicalType = "JSR310"
-    stringType = "CharSequence"
-// wait for https://github.com/davidmc24/gradle-avro-plugin/pull/104
-//    stringType = "String"
+    stringType = "String"
     outputCharacterEncoding = "UTF-8"
     logicalTypeFactory("street", de.mh.examples.avro.StreetLogicalTypeFactory)
     customConversion(de.mh.examples.avro.StreetConversion)

@@ -177,15 +177,12 @@ dependencies {
 avro {
     enableDecimalLogicalType = true
     dateTimeLogicalType = "JSR310"
-    stringType = "Charsqeuence"
+    stringType = "String"
     outputCharacterEncoding = "UTF-8"
     logicalTypeFactory("street", de.mh.examples.avro.StreetLogicalTypeFactory)
     customConversion(de.mh.examples.avro.StreetConversion)
 }
 ```
-
-:warning: when https://github.com/davidmc24/gradle-avro-plugin/pull/104 is done, you could use `stringType = "String"` as well.
-
 
 ### Register LogicalType before schema parser is instantiated
 
