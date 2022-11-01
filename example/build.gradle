@@ -7,25 +7,24 @@ buildscript {
 plugins {
     id 'java'
     id 'idea'
-    id 'com.commercehub.gradle.plugin.avro' version '0.19.1'
+    id 'com.github.davidmc24.gradle.plugin.avro' version '1.5.0'
 }
 
 repositories {
     mavenCentral()
 }
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 dependencies {
-    implementation 'org.apache.avro:avro:1.9.2'
+    implementation 'org.apache.avro:avro:1.11.1'
     implementation files('../logicaltypes/build/libs/logicaltypes-1.0.0.jar')
-    implementation 'ch.qos.logback:logback-classic:1.2.3'
+    implementation 'ch.qos.logback:logback-classic:1.4.4'
 }
 
 avro {
     enableDecimalLogicalType = true
-    dateTimeLogicalType = "JSR310"
     stringType = "String"
     outputCharacterEncoding = "UTF-8"
     logicalTypeFactory("street", de.mh.examples.avro.StreetLogicalTypeFactory)
