@@ -7,7 +7,7 @@ An Avro example which makes use of builtin logicalType as well as adds a custom 
 ```bash
 # Create logicalType package first
 
-cd logicaltypes
+cd logical-types
 ./gradlew build
 
 # Next you can run the example project
@@ -167,20 +167,19 @@ public class StreetConversion extends Conversion<Street> {
 
 ```groovy
 plugins {
-    id 'com.commercehub.gradle.plugin.avro' version '0.18.0'
+    id 'com.commercehub.gradle.plugin.avro' version '1.8.0'
 }
 
 dependencies {
-    implementation 'org.apache.avro:avro:1.9.2'
+    implementation 'org.apache.avro:avro:1.11.2'
 }
 
 avro {
     enableDecimalLogicalType = true
-    dateTimeLogicalType = "JSR310"
     stringType = "String"
     outputCharacterEncoding = "UTF-8"
-    logicalTypeFactory("street", de.mh.examples.avro.StreetLogicalTypeFactory)
-    customConversion(de.mh.examples.avro.StreetConversion)
+    logicalTypeFactory("street", "de.mh.examples.avro.StreetLogicalTypeFactory")
+    customConversion("de.mh.examples.avro.StreetConversion")
 }
 ```
 

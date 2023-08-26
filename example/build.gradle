@@ -1,25 +1,28 @@
 buildscript {
     dependencies {
-        classpath files('../logicaltypes/build/libs/logicaltypes-1.0.0.jar')
+        classpath files('../logical-types/build/libs/logical-types.jar')
     }
 }
 
 plugins {
     id 'java'
     id 'idea'
-    id 'com.github.davidmc24.gradle.plugin.avro' version '1.5.0'
+    id 'com.github.davidmc24.gradle.plugin.avro' version '1.8.0'
 }
 
 repositories {
     mavenCentral()
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
 
 dependencies {
-    implementation 'org.apache.avro:avro:1.11.1'
-    implementation files('../logicaltypes/build/libs/logicaltypes-1.0.0.jar')
+    implementation 'org.apache.avro:avro:1.11.2'
+    implementation files('../logical-types/build/libs/logical-types.jar')
     implementation 'ch.qos.logback:logback-classic:1.4.4'
 }
 
@@ -27,8 +30,8 @@ avro {
     enableDecimalLogicalType = true
     stringType = "String"
     outputCharacterEncoding = "UTF-8"
-    logicalTypeFactory("street", de.mh.examples.avro.StreetLogicalTypeFactory)
-    customConversion(de.mh.examples.avro.StreetConversion)
+    logicalTypeFactory("street", "de.mh.examples.avro.StreetLogicalTypeFactory")
+    customConversion("de.mh.examples.avro.StreetConversion")
 }
 
 wrapper {

@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class AvroExamples {
 
@@ -33,10 +34,10 @@ public class AvroExamples {
 
         User user2 = User.newBuilder()
                 .setName("Jon Doe")
-                .setSalary(BigDecimal.valueOf(90000.00).setScale(2))
+                .setSalary(BigDecimal.valueOf(90000.00).setScale(2, RoundingMode.UNNECESSARY))
                 .setAddress(Address.newBuilder()
                         .setCity("Buxtehude")
-                        .setStreet(new Street("Anyhwere", "10"))
+                        .setStreet(new Street("Anywhere", "10"))
                         .setZipcode("75869")
                         .build())
                 .build();
